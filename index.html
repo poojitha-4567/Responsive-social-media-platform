@@ -1,364 +1,550 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SocialConnect | Share Your World</title>
+  <title>SocialConnect | Social Media Platform</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-<body>
+<body data-theme="light">
 
-  <header class="topbar">
-    <a class="logo" href="#">Social<span>Connect</span></a>
+<header class="topbar">
+  <a href="#home" class="logo">
+    <i class="fa-solid fa-users"></i> Social<span>Connect</span>
+  </a>
 
-    <input id="searchInput" class="search" type="search"
-      placeholder="Search posts...">
-
-    <div class="top-actions">
-      <button id="themeBtn" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
-      <div class="mini-avatar">P</div>
-    </div>
-  </header>
-
-  <div class="layout">
-    <aside class="sidebar left-sidebar">
-      <div class="side-profile">
-        <img class="avatar large"
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&h=160&fit=crop"
-          alt="Poojitha profile">
-        <div>
-          <strong>Poojitha</strong>
-          <span>@poojitha</span>
-        </div>
-      </div>
-
-      <nav class="navigation">
-        <a class="nav-link active" href="#home">🏠 <span>Home</span></a>
-        <a class="nav-link" href="#stories">⭕ <span>Stories</span></a>
-        <a class="nav-link" href="#feed">🖼️ <span>Explore Posts</span></a>
-        <a class="nav-link" href="#reels">🎬 <span>Reels & Videos</span></a>
-        <a class="nav-link" href="#create">➕ <span>Create Post</span></a>
-      </nav>
-
-      <div class="sidebar-note">
-        <span>✨</span>
-        <strong>Share your moments</strong>
-        <p>Connect with friends and discover beautiful things every day.</p>
-      </div>
-    </aside>
-
-    <main class="main-content" id="home">
-
-      <section class="stories-panel" id="stories">
-        <div class="section-heading">
-          <div>
-            <h2>Stories</h2>
-            <p>Moments from your friends</p>
-          </div>
-          <span class="online-label">● Friends</span>
-        </div>
-
-        <div class="stories-list">
-          <button class="story-item own-story" data-story="Poojitha">
-            <div class="story-ring">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&h=160&fit=crop"
-                alt="Poojitha">
-              <span class="add-story">+</span>
-            </div>
-            <span>Your story</span>
-          </button>
-
-          <button class="story-item" data-story="Deepu">
-            <div class="story-ring">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&fit=crop" alt="Deepu">
-            </div>
-            <span>Deepu</span>
-          </button>
-
-          <button class="story-item" data-story="Madhavi">
-            <div class="story-ring">
-              <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=160&h=160&fit=crop" alt="Madhavi">
-            </div>
-            <span>Madhavi</span>
-          </button>
-
-          <button class="story-item" data-story="Mydhili">
-            <div class="story-ring">
-              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=160&h=160&fit=crop" alt="Mydhili">
-            </div>
-            <span>Mydhili</span>
-          </button>
-
-          <button class="story-item" data-story="Sudharshan">
-            <div class="story-ring">
-              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=160&h=160&fit=crop" alt="Sudharshan">
-            </div>
-            <span>Sudharshan</span>
-          </button>
-
-          <button class="story-item" data-story="Suneel">
-            <div class="story-ring">
-              <img src="https://images.unsplash.com/photo-1504593811423-6dd665756598?w=160&h=160&fit=crop" alt="Suneel">
-            </div>
-            <span>Suneel</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="create-card" id="create">
-        <div class="section-heading">
-          <div>
-            <h2>Create a post</h2>
-            <p>Share something with your friends</p>
-          </div>
-          <span class="create-icon">✍️</span>
-        </div>
-
-        <div class="create-input-row">
-          <img class="avatar"
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&h=160&fit=crop"
-            alt="Poojitha">
-          <textarea id="postText" placeholder="What's on your mind, Poojitha?"></textarea>
-        </div>
-
-        <div id="uploadPreview" class="upload-preview"></div>
-
-        <div class="create-actions">
-          <label for="mediaInput" class="upload-label">📷 Photo / Video</label>
-          <input id="mediaInput" type="file" accept="image/*,video/*" hidden>
-          <span id="fileName" class="file-name">No file selected</span>
-          <button id="postBtn" class="primary-btn">Share post ↗</button>
-        </div>
-      </section>
-
-      <section id="feed" class="feed-section">
-        <div class="section-heading feed-title">
-          <div>
-            <h2>Latest posts</h2>
-            <p>See what your friends are sharing</p>
-          </div>
-          <span class="feed-badge">Your feed</span>
-        </div>
-
-        <article class="post-card" data-search="deepu nature mountain sunrise travel">
-          <div class="post-header">
-            <img class="avatar"
-              src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&fit=crop"
-              alt="Deepu">
-            <div class="post-user">
-              <strong>Deepu</strong>
-              <span>Today · 9:15 AM</span>
-            </div>
-            <button class="more-btn" aria-label="More options">•••</button>
-          </div>
-          <p class="post-caption">A peaceful morning in the mountains. Nature has its own magic! 🌄💚</p>
-          <img class="post-media"
-            src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1000&auto=format&fit=crop"
-            alt="Beautiful mountain landscape">
-          <div class="post-stats"><span class="like-count">24 likes</span><span>3 comments</span></div>
-          <div class="post-actions">
-            <button class="like-btn">♡ Like</button>
-            <button class="comment-btn">💬 Comment</button>
-            <button class="share-btn">↗ Share</button>
-          </div>
-          <div class="comment-area">
-            <div class="comment-list"></div>
-            <form class="comment-form">
-              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
-              <button type="submit">Post</button>
-            </form>
-          </div>
-        </article>
-
-        <article class="post-card" data-search="madhavi waterfall green forest nature">
-          <div class="post-header">
-            <img class="avatar"
-              src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=160&h=160&fit=crop"
-              alt="Madhavi">
-            <div class="post-user">
-              <strong>Madhavi</strong>
-              <span>Today · 10:30 AM</span>
-            </div>
-            <button class="more-btn" aria-label="More options">•••</button>
-          </div>
-          <p class="post-caption">Green views, fresh air, and a little peace of mind. 🌿✨</p>
-          <img class="post-media"
-            src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=1000&auto=format&fit=crop"
-            alt="Waterfall surrounded by greenery">
-          <div class="post-stats"><span class="like-count">38 likes</span><span>5 comments</span></div>
-          <div class="post-actions">
-            <button class="like-btn">♡ Like</button>
-            <button class="comment-btn">💬 Comment</button>
-            <button class="share-btn">↗ Share</button>
-          </div>
-          <div class="comment-area">
-            <div class="comment-list"></div>
-            <form class="comment-form">
-              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
-              <button type="submit">Post</button>
-            </form>
-          </div>
-        </article>
-
-        <article class="post-card" data-search="mydhili flowers garden colourful nature">
-          <div class="post-header">
-            <img class="avatar"
-              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=160&h=160&fit=crop"
-              alt="Mydhili">
-            <div class="post-user">
-              <strong>Mydhili</strong>
-              <span>Today · 11:45 AM</span>
-            </div>
-            <button class="more-btn" aria-label="More options">•••</button>
-          </div>
-          <p class="post-caption">Little things make life beautiful. Stop and enjoy the flowers. 🌸</p>
-          <img class="post-media"
-            src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=1000&auto=format&fit=crop"
-            alt="Colourful flowers">
-          <div class="post-stats"><span class="like-count">17 likes</span><span>2 comments</span></div>
-          <div class="post-actions">
-            <button class="like-btn">♡ Like</button>
-            <button class="comment-btn">💬 Comment</button>
-            <button class="share-btn">↗ Share</button>
-          </div>
-          <div class="comment-area">
-            <div class="comment-list"></div>
-            <form class="comment-form">
-              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
-              <button type="submit">Post</button>
-            </form>
-          </div>
-        </article>
-
-        <article class="post-card" data-search="sudharshan beach sunset sky">
-          <div class="post-header">
-            <img class="avatar"
-              src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=160&h=160&fit=crop"
-              alt="Sudharshan">
-            <div class="post-user">
-              <strong>Sudharshan</strong>
-              <span>Today · 12:20 PM</span>
-            </div>
-            <button class="more-btn" aria-label="More options">•••</button>
-          </div>
-          <p class="post-caption">Chasing sunsets and collecting memories. 🌅</p>
-          <img class="post-media"
-            src="https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=1000&auto=format&fit=crop"
-            alt="Peaceful sunset landscape">
-          <div class="post-stats"><span class="like-count">31 likes</span><span>4 comments</span></div>
-          <div class="post-actions">
-            <button class="like-btn">♡ Like</button>
-            <button class="comment-btn">💬 Comment</button>
-            <button class="share-btn">↗ Share</button>
-          </div>
-          <div class="comment-area">
-            <div class="comment-list"></div>
-            <form class="comment-form">
-              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
-              <button type="submit">Post</button>
-            </form>
-          </div>
-        </article>
-
-        <article class="post-card" data-search="suneel lake forest peaceful nature">
-          <div class="post-header">
-            <img class="avatar"
-              src="https://images.unsplash.com/photo-1504593811423-6dd665756598?w=160&h=160&fit=crop"
-              alt="Suneel">
-            <div class="post-user">
-              <strong>Suneel</strong>
-              <span>Today · 1:05 PM</span>
-            </div>
-            <button class="more-btn" aria-label="More options">•••</button>
-          </div>
-          <p class="post-caption">Finding peace in quiet places. 🌳💚</p>
-          <img class="post-media"
-            src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1000&auto=format&fit=crop"
-            alt="Sunlight in a green forest">
-          <div class="post-stats"><span class="like-count">42 likes</span><span>6 comments</span></div>
-          <div class="post-actions">
-            <button class="like-btn">♡ Like</button>
-            <button class="comment-btn">💬 Comment</button>
-            <button class="share-btn">↗ Share</button>
-          </div>
-          <div class="comment-area">
-            <div class="comment-list"></div>
-            <form class="comment-form">
-              <input type="text" placeholder="Write a comment..." aria-label="Write a comment">
-              <button type="submit">Post</button>
-            </form>
-          </div>
-        </article>
-      </section>
-
-      <section class="reels-section" id="reels">
-        <div class="section-heading">
-          <div>
-            <h2>Reels & videos</h2>
-            <p>Take a little break and enjoy</p>
-          </div>
-          <span class="reel-icon">▶</span>
-        </div>
-
-        <div class="reels-grid">
-          <article class="reel-card">
-            <video controls preload="metadata"
-              poster="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600&auto=format&fit=crop">
-              <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
-              Your browser does not support video.
-            </video>
-            <p>🌼 Nature moments</p>
-          </article>
-          <article class="reel-card">
-            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600&auto=format&fit=crop" alt="Mountain lake">
-            <p>🏞️ Explore the world</p>
-          </article>
-        </div>
-      </section>
-    </main>
-
-    <aside class="sidebar right-sidebar">
-      <section class="profile-card">
-        <div class="profile-cover"></div>
-        <img class="profile-avatar"
-          src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop"
-          alt="Poojitha profile">
-        <h2>Poojitha</h2>
-        <p class="username">@poojitha</p>
-        <p class="bio">Learning, creating and sharing little moments. 🌸</p>
-        <div class="profile-stats">
-          <div><strong>6</strong><span>Friends</span></div>
-          <div><strong>5</strong><span>Posts</span></div>
-          <div><strong>12</strong><span>Photos</span></div>
-        </div>
-        <a href="#create" class="edit-profile">＋ Create a post</a>
-      </section>
-
-      <section class="trending-card">
-        <h3>Trending topics</h3>
-        <a href="#feed">#NatureLovers <span>🌿</span></a>
-        <a href="#feed">#GoodVibes <span>✨</span></a>
-        <a href="#feed">#TravelDiaries <span>🌍</span></a>
-        <a href="#feed">#Photography <span>📸</span></a>
-      </section>
-
-      <section class="theme-card">
-        <h3>Customize theme</h3>
-        <p>Choose your favourite colour</p>
-        <div class="theme-colors">
-          <button class="color-dot purple" data-color="#7955e8" aria-label="Purple theme"></button>
-          <button class="color-dot pink" data-color="#e64e91" aria-label="Pink theme"></button>
-          <button class="color-dot blue" data-color="#3984e8" aria-label="Blue theme"></button>
-          <button class="color-dot green" data-color="#199b79" aria-label="Green theme"></button>
-          <button class="color-dot orange" data-color="#e58b36" aria-label="Orange theme"></button>
-        </div>
-      </section>
-
-      <p class="copyright">© 2026 SocialConnect<br>Made with 💗 by Poojitha</p>
-    </aside>
+  <div class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input id="searchInput" type="search"
+      placeholder="Search posts and people...">
   </div>
 
-  <div id="toast" class="toast" role="status"></div>
-  <script src="script.js"></script>
+  <div class="top-actions">
+    <button class="primary-btn" id="topCreate">
+      <i class="fa-solid fa-plus"></i> Create
+    </button>
+    <button class="soft-btn" id="customizeBtn">
+      <i class="fa-solid fa-gear"></i> Customize
+    </button>
+    <img class="top-avatar" src="poojitha.jpeg" alt="Poojitha">
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar panel">
+    <div class="profile-mini">
+      <img src="poojitha.jpeg" alt="Poojitha">
+      <div>
+        <h3>Poojitha</h3>
+        <p>@poojitha</p>
+        <button class="soft-btn" id="editProfile">
+          <i class="fa-regular fa-pen-to-square"></i> Edit Profile
+        </button>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a class="nav-link active" href="#home">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+      <a class="nav-link" href="#explore">
+        <i class="fa-regular fa-compass"></i> Explore
+      </a>
+      <a class="nav-link" href="#notifications">
+        <i class="fa-regular fa-bell"></i> Notifications
+        <span class="count-badge">3</span>
+      </a>
+      <a class="nav-link" href="#messages">
+        <i class="fa-regular fa-envelope"></i> Messages
+        <span class="count-badge">2</span>
+      </a>
+      <a class="nav-link" href="#bookmarks">
+        <i class="fa-regular fa-bookmark"></i> Bookmarks
+      </a>
+      <a class="nav-link" href="#analytics">
+        <i class="fa-solid fa-chart-column"></i> Analytics
+      </a>
+      <a class="nav-link" href="#customize">
+        <i class="fa-solid fa-palette"></i> Theme
+      </a>
+      <a class="nav-link" href="#settings">
+        <i class="fa-solid fa-gear"></i> Settings
+      </a>
+    </nav>
+
+    <div class="sidebar-promo">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+      <h3>Share your moments</h3>
+      <p>Connect with friends and discover beautiful things every day.</p>
+      <button class="primary-btn" id="sidebarCreate">Create a post</button>
+    </div>
+  </aside>
+
+  <!-- MAIN FEED -->
+  <main class="feed" id="home">
+
+    <section class="panel stories-panel">
+      <div class="section-heading">
+        <div>
+          <h2>Stories</h2>
+          <p>Moments from your friends</p>
+        </div>
+        <span class="online-label">● Friends</span>
+      </div>
+
+      <div class="stories-list" id="storiesList">
+        <button class="story" id="addStory">
+          <div class="story-ring add-ring">
+            <img src="poojitha.jpeg" alt="Your story">
+            <span class="add-badge">+</span>
+          </div>
+          <span>Your story</span>
+        </button>
+
+        <button class="story" data-story="Deepu">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=160&h=160&fit=crop"
+            alt="Deepu"></div>
+          <span>Deepu</span>
+        </button>
+
+        <button class="story" data-story="Nagur">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=160&h=160&fit=crop"
+            alt="Nagur"></div>
+          <span>Nagur</span>
+        </button>
+
+        <button class="story" data-story="Amyee">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=160&h=160&fit=crop"
+            alt="Amyee"></div>
+          <span>Srija</span>
+        </button>
+
+        <button class="story" data-story="Madhavi">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=160&h=160&fit=crop"
+            alt="Madhavi"></div>
+          <span>Madhavi</span>
+        </button>
+
+        <button class="story" data-story="Mydhili">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=160&h=160&fit=crop"
+            alt="Mydhili"></div>
+          <span>Mydhili</span>
+        </button>
+
+        <button class="story" data-story="Sudarshan">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=160&h=160&fit=crop"
+            alt="Sudarshan"></div>
+          <span>Sudarshan</span>
+        </button>
+
+        <button class="story" data-story="Suneel">
+          <div class="story-ring"><img
+            src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=160&h=160&fit=crop"
+            alt="Suneel"></div>
+          <span>Suneel</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- CREATE POST -->
+    <section class="panel composer" id="createPost">
+      <div class="section-heading">
+        <div>
+          <h2>Create a post</h2>
+          <p>Share something with your friends</p>
+        </div>
+        <i class="fa-solid fa-pen-nib composer-icon"></i>
+      </div>
+
+      <div class="compose-row">
+        <img class="avatar" src="poojitha.jpeg" alt="Poojitha">
+        <textarea id="postText"
+          placeholder="What's on your mind, Poojitha?"></textarea>
+      </div>
+
+      <div id="previewArea"></div>
+
+      <div class="compose-footer">
+        <label class="upload-label">
+          <i class="fa-regular fa-image"></i> Photo / Video
+          <input type="file" id="postImage" accept="image/*,video/*">
+        </label>
+        <span id="fileName">No file selected</span>
+        <button class="primary-btn" id="sharePost">
+          Share post <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- POSTS -->
+    <div class="feed-heading">
+      <div>
+        <h2>Latest posts</h2>
+        <p>See what your friends are sharing</p>
+      </div>
+      <span class="feed-label">Your feed</span>
+    </div>
+
+    <section id="postsList">
+
+      <article class="panel post-card searchable-post">
+        <div class="post-header">
+          <img class="avatar" src="poojitha.jpeg" alt="Poojitha">
+          <div class="post-user">
+            <h3>Poojitha</h3>
+            <p>Just now · <i class="fa-solid fa-earth-americas"></i> Public</p>
+          </div>
+          <button class="icon-btn more-btn" aria-label="More options">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+
+        <p class="post-caption">
+          Little moments, beautiful memories. 🌿✨
+        </p>
+
+        <img class="post-media"
+          src="poojitha.jpeg" alt="Poojitha's photo">
+
+        <div class="post-actions">
+          <button class="action-btn like-btn">
+            <i class="fa-regular fa-heart"></i>
+            <span>128</span>
+          </button>
+          <button class="action-btn comment-btn">
+            <i class="fa-regular fa-comment"></i>
+            <span>24</span>
+          </button>
+          <button class="action-btn share-btn">
+            <i class="fa-solid fa-share"></i> Share
+          </button>
+          <button class="action-btn bookmark-btn" aria-label="Bookmark">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+
+        <div class="comments-area hidden">
+          <div class="comment-list">
+            <p>Deepu: Beautiful picture! ❤️</p>
+          </div>
+          <form class="comment-form">
+            <input class="comment-input" placeholder="Write a comment...">
+            <button class="primary-btn" type="submit">Send</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="panel post-card searchable-post">
+        <div class="post-header">
+          <img class="avatar"
+            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=120&h=120&fit=crop"
+            alt="Deepu">
+          <div class="post-user">
+            <h3>Deepu</h3>
+            <p>2 hours ago · <i class="fa-solid fa-earth-americas"></i> Public</p>
+          </div>
+          <button class="icon-btn more-btn" aria-label="More options">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+
+        <p class="post-caption">
+          Nature always has a way of making you feel better. 💚
+        </p>
+
+        <img class="post-media"
+          src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?w=1000&h=600&fit=crop"
+          alt="Beautiful waterfall in nature">
+
+        <div class="post-actions">
+          <button class="action-btn like-btn">
+            <i class="fa-regular fa-heart"></i>
+            <span>128</span>
+          </button>
+          <button class="action-btn comment-btn">
+            <i class="fa-regular fa-comment"></i>
+            <span>24</span>
+          </button>
+          <button class="action-btn share-btn">
+            <i class="fa-solid fa-share"></i> Share
+          </button>
+          <button class="action-btn bookmark-btn" aria-label="Bookmark">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+
+        <div class="comments-area hidden">
+          <div class="comment-list"></div>
+          <form class="comment-form">
+            <input class="comment-input" placeholder="Write a comment...">
+            <button class="primary-btn" type="submit">Send</button>
+          </form>
+        </div>
+      </article>
+
+      <article class="panel post-card searchable-post">
+        <div class="post-header">
+          <img class="avatar"
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=120&h=120&fit=crop"
+            alt="Amyee">
+          <div class="post-user">
+            <h3>srija</h3>
+            <p>4 hours ago · Public</p>
+          </div>
+          <button class="icon-btn more-btn" aria-label="More options">
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+        <p class="post-caption">Good vibes and happy days! 🌸</p>
+        <img class="post-media"
+          src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=1000&h=600&fit=crop"
+          alt="Sunrise landscape">
+        <div class="post-actions">
+          <button class="action-btn like-btn">
+            <i class="fa-regular fa-heart"></i> <span>56</span>
+          </button>
+          <button class="action-btn comment-btn">
+            <i class="fa-regular fa-comment"></i> <span>8</span>
+          </button>
+          <button class="action-btn share-btn">
+            <i class="fa-solid fa-share"></i> Share
+          </button>
+          <button class="action-btn bookmark-btn" aria-label="Bookmark">
+            <i class="fa-regular fa-bookmark"></i>
+          </button>
+        </div>
+        <div class="comments-area hidden">
+          <div class="comment-list"></div>
+          <form class="comment-form">
+            <input class="comment-input" placeholder="Write a comment...">
+            <button class="primary-btn" type="submit">Send</button>
+          </form>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- REELS -->
+    <section class="panel reels-panel" id="explore">
+      <div class="section-heading">
+        <div>
+          <h2><i class="fa-solid fa-film"></i> Reels & Videos</h2>
+          <p>Discover short videos</p>
+        </div>
+      </div>
+
+      <div class="reels-grid">
+        <article class="reel-card">
+          <video controls playsinline preload="metadata"
+            poster="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=500&h=700&fit=crop">
+            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+          </video>
+          <p>Nature moments 🌿</p>
+        </article>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=500&h=700&fit=crop"
+            alt="Sunrise">
+          <p>Beautiful mornings ✨</p>
+        </article>
+        <article class="reel-card">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&h=700&fit=crop"
+            alt="Mountains">
+          <p>Travel diaries 🌎</p>
+        </article>
+      </div>
+      <p class="muted small-text">
+        To share your own video, use the Photo / Video option in Create a post.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- RIGHT SIDEBAR -->
+  <aside class="rightbar">
+
+    <section class="panel profile-card">
+      <div class="cover"></div>
+      <img class="profile-large" src="poojitha.jpeg" alt="Poojitha">
+      <div class="profile-info">
+        <h2 id="profileName">Poojitha</h2>
+        <p>@poojitha</p>
+        <p class="bio">Learning, creating and sharing little moments. 🌸</p>
+      </div>
+      <div class="profile-stats">
+        <div><strong>6</strong><span>Friends</span></div>
+        <div><strong id="postCount">3</strong><span>Posts</span></div>
+        <div><strong>12</strong><span>Photos</span></div>
+      </div>
+      <button class="primary-btn profile-create" id="profileCreate">
+        + Create a post
+      </button>
+    </section>
+
+    <!-- MESSAGES -->
+    <section class="panel messages-panel" id="messages">
+      <div class="section-heading">
+        <h2>Messages</h2>
+        <button class="icon-btn" id="newMessage" aria-label="New message">
+          <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+      </div>
+
+      <div class="search-box message-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="messageSearch" placeholder="Search messages...">
+      </div>
+
+      <div class="message-tabs">
+        <button class="selected" data-tab="Primary">Primary</button>
+        <button data-tab="General">General</button>
+        <button data-tab="Requests">Requests (2)</button>
+      </div>
+
+      <div id="messageList">
+        <button class="message-item" data-name="Deepu">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" alt="Deepu">
+          <span class="message-details">
+            <strong>Deepu</strong>
+            <small>Hey! How are you? 😊</small>
+          </span>
+          <span class="message-time">9:15 AM</span>
+        </button>
+
+        <button class="message-item" data-name="Nagur">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" alt="Nagur">
+          <span class="message-details">
+            <strong>Nagur</strong>
+            <small>See you tomorrow!</small>
+          </span>
+          <span class="message-time">10:00 AM</span>
+        </button>
+
+        <button class="message-item" data-name="Amyee">
+          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" alt="Amyee">
+          <span class="message-details">
+            <strong>Amyee</strong>
+            <small>That picture is lovely! 💕</small>
+          </span>
+          <span class="message-time">Yesterday</span>
+        </button>
+
+        <button class="message-item" data-name="Madhavi">
+          <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=100&h=100&fit=crop" alt="Madhavi">
+          <span class="message-details">
+            <strong>Madhavi</strong>
+            <small>Okay, got it!</small>
+          </span>
+          <span class="message-time">Yesterday</span>
+        </button>
+
+        <button class="message-item" data-name="Mydhili">
+          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=100&h=100&fit=crop" alt="Mydhili">
+          <span class="message-details">
+            <strong>Mydhili</strong>
+            <small>Let's catch up soon!</small>
+          </span>
+          <span class="message-time">Yesterday</span>
+        </button>
+
+        <button class="message-item" data-name="Sudarshan">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" alt="Sudarshan">
+          <span class="message-details">
+            <strong>Sudarshan</strong>
+            <small>Thanks, friend!</small>
+          </span>
+          <span class="message-time">Monday</span>
+        </button>
+      </div>
+
+      <div id="chatBox" class="chat-box hidden">
+        <div class="chat-heading">
+          <div>
+            <h3 id="chatTitle">Chat</h3>
+            <small class="muted">Demo conversation</small>
+          </div>
+          <button class="icon-btn" id="closeChat" aria-label="Close chat">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div id="chatMessages" class="chat-messages"></div>
+        <form id="chatForm" class="chat-form">
+          <input id="chatInput" placeholder="Type a message..." autocomplete="off">
+          <button class="primary-btn" type="submit" aria-label="Send message">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CUSTOMIZATION -->
+    <section class="panel customize-panel" id="customize">
+      <div class="section-heading">
+        <h2>Customize your view</h2>
+        <button class="icon-btn" id="closeCustomize" aria-label="Close customization">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <label class="setting-label" for="fontSize">Font Size</label>
+      <div class="font-control">
+        <span>A</span>
+        <input type="range" id="fontSize" min="14" max="20" value="16">
+        <span>A</span>
+      </div>
+      <small id="fontValue" class="muted">16px</small>
+
+      <p class="setting-label">Theme Color</p>
+      <div class="color-options">
+        <button class="color-choice selected" data-color="#5925ee"
+          style="--swatch:#5925ee" aria-label="Purple"></button>
+        <button class="color-choice" data-color="#eab308"
+          style="--swatch:#eab308" aria-label="Yellow"></button>
+        <button class="color-choice" data-color="#ec4899"
+          style="--swatch:#ec4899" aria-label="Pink"></button>
+        <button class="color-choice" data-color="#10b981"
+          style="--swatch:#10b981" aria-label="Green"></button>
+        <button class="color-choice" data-color="#0ea5e9"
+          style="--swatch:#0ea5e9" aria-label="Blue"></button>
+      </div>
+
+      <p class="setting-label">Background</p>
+      <div class="theme-options">
+        <button class="theme-choice selected" data-theme="light">
+          <i class="fa-regular fa-sun"></i> Light
+        </button>
+        <button class="theme-choice" data-theme="dim">
+          <i class="fa-solid fa-moon"></i> Dim
+        </button>
+        <button class="theme-choice" data-theme="dark">
+          <i class="fa-solid fa-moon"></i> Dark
+        </button>
+      </div>
+    </section>
+
+    <section class="panel trending-panel">
+      <h2>Trending topics</h2>
+      <p>#NatureLovers 🌿</p>
+      <p>#GoodVibes ✨</p>
+      <p>#TravelDiaries 🌎</p>
+      <p>#SocialConnect 💜</p>
+    </section>
+
+  </aside>
+</div>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script src="script.js"></script>
 </body>
 </html>
